@@ -1,9 +1,7 @@
 {
-  "name": "MipaginaWeb",
   "version": "1.0.0",
   "packageManager": "pnpm@7.5.1",
   "scripts": {
-    "start": "node index.html"
   },
   "dependencies": {
     "express": "^4.17.1"
