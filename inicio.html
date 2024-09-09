@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Verdades absolutas">
+    <meta name="keywords" content="verdades, sentimientos, relaciones, tipos,etc.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <img src="imagenes/logo.png" alt="logo" class="logo">
+                <li><a href="info.html">Info</a></li>
+                <li class="verdades-absolutas"><a href="#">Verdades Absolutas</a></li>
+                <div class="seleccionar-archivo">
+                    <input type="file" id="imagen-1" accept="image/*">
+                    <button id="agregar-imagen-1">Agregar imagen</button>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <section class="cuadros">
+            <div class="cuadro">
+                <div class="comentarios">
+                    <!-- Aquí se mostrarán los comentarios -->
+                </div>
+                <div class="comentarios-formulario">
+                    <!-- Aquí se mostrará el formulario de comentarios -->
+                </div>
+                <div class="imagenes">
+                    <!-- Aquí se mostrarán las imágenes -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Obtener el formulario y el contenedor de comentarios
+        const formulario = document.getElementById('formulario-comentario');
+        const agregarImagenButton = document.getElementById('agregar-imagen-1');
+        const imagenInput = document.getElementById('imagen-1');        
+        const cuadro = document.querySelector('.cuadro');
+        const imagenes = [];
+        
+        agregarImagenButton.addEventListener('click', (e) => {
+            e.preventDefault();
+        
+            if (imagenInput.files.length > 0) {
+                const file = imagenInput.files[0];
+                const reader = new FileReader();
+        
+                reader.onload = (event) => {
+                    const imageData = event.target.result;
+                    const img = document.createElement('img');
+                    img.src = imageData;
+                    img.className = 'agregada'; // Agrega la clase agregada
+                
+                    // Add the image to the page
+                    cuadro.appendChild(img);
+                    
+                    // Agregar formulario de comentarios
+                    const comentariosFormulario = document.createElement('div');
+                    comentariosFormulario.className = 'comentarios-formulario';
+        
+                    const formularioComentario = document.createElement('form');
+                    formularioComentario.id = 'formulario-comentario-' + (cuadro.children.length - 1);
+        
+                    const labelComentario = document.createElement('label');
+                    labelComentario.for = 'comentario';
+                    labelComentario.textContent = 'Comentario:';
+        
+                    const textareaComentario = document.createElement('textarea');
+                    textareaComentario.id = 'comentario-' + (cuadro.children.length - 1);
+                    textareaComentario.name = 'comentario';
+        
+                    const inputSubmit = document.createElement('input');
+                    inputSubmit.type = 'submit';
+                    inputSubmit.value = 'OK'; // Cambia el valor del botón a una tilde
+        
+                    formularioComentario.appendChild(labelComentario);
+                    formularioComentario.appendChild(textareaComentario);
+                    formularioComentario.appendChild(inputSubmit);
+        
+                    comentariosFormulario.appendChild(formularioComentario);
+        
+                    cuadro.appendChild(comentariosFormulario);
+        
+                    // Agregar la imagen al arreglo y guardarla en el almacenamiento local
+                    imagenes.push(imageData);
+                    localStorage.setItem('imagenes', JSON.stringify(imagenes));
+                };
+        
+                reader.readAsDataURL(file);
+            } else {
+                alert('Por favor, seleccione un archivo');
+            }
+        });
+
+// Agregar evento de envío del formulario
+const formularios = document.querySelectorAll('form');
+formularios.forEach((formulario) => {
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Obtener los valores del formulario
+        const textareaComentario = formulario.querySelector('textarea');
+        const comentario = textareaComentario.value;
+
+        // Crear un nuevo comentario
+        const nuevoComentario = document.createElement('p');
+        nuevoComentario.textContent = comentario;
+
+        // Agregar el comentario al contenedor de comentarios
+        const contenedorComentarios = formulario.parentNode.parentNode.querySelector('.comentarios');
+        contenedorComentarios.appendChild(nuevoComentario);
+
+        // Limpiar el formulario
+        formulario.reset();
+    });
+});
+// Cargar las imágenes del almacenamiento local
+const storedImagenes = localStorage.getItem('imagenes');
+if (storedImagenes) {
+    imagenes = JSON.parse(storedImagenes);
+    imagenes.forEach((imagen) => {
+        const img = document.createElement('img');
+        img.src = imagen;
+        img.className = 'agregada'; // Agrega la clase agregada
+
+        const imagenesContainer = document.querySelector('.imagenes');
+        imagenesContainer.appendChild(img);
+
+        // Agregar formulario de comentarios
+        const comentariosFormulario = document.createElement('div');
+        comentariosFormulario.className = 'comentarios-formulario';
+
+        const formularioComentario = document.createElement('form');
+        formularioComentario.id = 'formulario-comentario-' + (imagenesContainer.children.length - 1);
+
+        const labelComentario = document.createElement('label');
+        labelComentario.for = 'comentario';
+        labelComentario.textContent = 'Comentario:';
+
+        const textareaComentario = document.createElement('textarea');
+        textareaComentario.id = 'comentario-' + (imagenesContainer.children.length - 1);
+        textareaComentario.name = 'comentario';
+
+        const inputSubmit = document.createElement('input');
+        inputSubmit.type = 'submit';
+        inputSubmit.value = 'Enviar comentario';
+
+        formularioComentario.appendChild(labelComentario);
+        formularioComentario.appendChild(textareaComentario);
+        formularioComentario.appendChild(inputSubmit);
+
+        comentariosFormulario.appendChild(formularioComentario);
+
+        imagenesContainer.appendChild(comentariosFormulario);
+    });
+}
+
+    </script>
+</body>
+</html>

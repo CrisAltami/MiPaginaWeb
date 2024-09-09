@@ -1,0 +1,49 @@
+body {
+    background-image: url(Imagenes/Fondo.jpg); /* Agrega un color de fondo claro */
+    margin: 10px;
+    padding: 10px;
+    border-radius: 50%;
+}
+/* Estilos para el footer */
+footer {
+    background-color: #047e9470;
+    padding: 20px;
+    text-align: center;
+    clear: both;
+}
+
+/* Estilos para los botones de redes sociales */
+.social-btns {
+    margin-top: 20px;
+}
+
+.social-btns a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #690606;
+    text-decoration: none;
+}
+
+.social-btns a:hover {
+    background-color: #555;
+}
+
+footer h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Cambia el tipo de letra a Arial */
+    color: #abc032; /* Cambia el color del título a un azul oscuro */
+}
+
+footer p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cambia el tipo de letra a Arial */
+    color: #ffffff; /* Cambia el color del texto a un gris oscuro */
+}
+
+.imagen {
+    width: 200px; /* Establece el ancho de las imágenes */
+    height: 150px; /* Establece el alto de las imágenes */
+    margin: 10px; /* Agrega un margen entre las imágenes */
+    display: block;
+}

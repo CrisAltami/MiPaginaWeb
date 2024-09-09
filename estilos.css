@@ -1,0 +1,190 @@
+body {
+    
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom, #2ca550, #0943e2, #35d4df);
+    background-size: 100% 300px;
+    background-position: 0% 100%;
+    background-repeat: repeat-y;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cuadro {
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px; /* adjust the width to your liking */
+}
+
+.cuadro img {
+    width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+.cuadro p {
+    padding: 10px;
+    font-size: 14px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    clear: both;
+}
+
+footer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+footer button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cuadros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cuadro {
+    display: inline-block;
+    margin: 10px;
+}
+
+.comentarios-formulario {
+    margin-top: 10px;
+}
+
+.comentarios-formulario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comentarios-formulario label {
+    margin-bottom: 10px;
+}
+
+.comentarios-formulario textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.comentarios-formulario input[type="submit"] {
+    width: 25px; /* Ajusta el ancho del botón */
+    height: 25px; /* Ajusta el alto del botón */
+    padding: 5px; /* Ajusta el relleno del botón */
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.comentarios-formulario input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+/* Agregar estilos para la imagen de logo */
+.logo {
+    width: 100px; /* Establece el ancho de la imagen en 50px */
+    height: 100px; /* Establece el alto de la imagen en 50px */
+    border-radius: 10%; /* Agrega un borde redondeado para que la imagen parezca un círculo */ /* Agrega un margen para separar la imagen del resto del contenido */
+}
+
+/* Agregar estilos para la lista de Verdades Absolutas */
+.verdades-absolutas a {
+    color: #27ccbe; /* Establece el color del texto en azul */
+    font-size: 50px; /* Establece el tamaño de la fuente en 18px */
+    font-weight: bold; /* Establece el peso de la fuente en negrita */
+}
+
+.seleccionar-archivo {
+    display: inline-block;
+    align-items: center;
+}
+
+.seleccionar-archivo input[type="file"] {
+    margin-right: 10px;
+}
+
+.seleccionar-archivo button {
+    margin-left: 10px;
+}
+
+.preview-container {
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px; /* adjust the width to your liking */
+}
+
+.preview-image {
+    width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+.temporal {
+    width: 100px; /* ajusta el ancho a tu gusto */
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
